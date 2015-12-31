@@ -3,17 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" type="text/css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://www.pitt.edu/~qim3/js/jquery-ui-new.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="./asset/js/google.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdn.bootcss.com/highcharts/4.2.1/highcharts.js"></script>
+<script src="https://cdn.bootcss.com/highcharts/4.2.1/modules/exporting.js"></script>
+<script src="www.bigdataforme.com/asset/js/google.js"></script>
 </head>
 
 <body>
@@ -26,7 +20,7 @@
   <script>
 
 
-  $.getJSON( "./asset/data/HGT_YuTONG.txt", function( json ) {
+  $.getJSON( "www.bigdataforme.com/asset/data/HGT_YuTONG.txt", function( json ) {
    out = json;
 
 var date = _.pluck(out,'日期');
@@ -55,7 +49,7 @@ var configure =  {
         yAxis: {
             //min: 0,
             title: {
-                text: '金额'
+                text: '金额(亿)'
             }
         },
         tooltip: {
@@ -97,7 +91,7 @@ $(function () {var chart1 = new Highcharts.chart(configure)});
   </script>
 
 <script>
-$.getJSON( "./asset/data/HGT_1d.txt", function( json ) {
+$.getJSON( "www.bigdataforme.com/asset/data/HGT_1d.txt", function( json ) {
  out1 = json;
 var name = _.keys(out1.涨跌幅);
 
@@ -128,7 +122,7 @@ var configure2 =  {
         yAxis: {
             //min: 0,
             title: {
-                text: '金额'
+                text: '金额(亿)'
             }
         },
         tooltip: {
@@ -172,7 +166,7 @@ $(function () {var chart2 = new Highcharts.chart(configure2)});
 
 
 <script>
-$.getJSON( "./asset/data/HGT_3d.txt", function( json ) {
+$.getJSON( "www.bigdataforme.com/asset/data/HGT_3d.txt", function( json ) {
  out3 = json;
 var name = _.keys(out3.涨跌幅);
 
@@ -198,7 +192,7 @@ var configure3 =  {
         yAxis: {
             //min: 0,
             title: {
-                text: '金额'
+                text: '金额(亿)'
             }
         },
         tooltip: {
@@ -241,11 +235,11 @@ $(function () {var chart3 = new Highcharts.chart(configure3)});
 </script>
 
 <script>
-$.getJSON( "./asset/data/HGT_5d.txt", function( json ) {
+$.getJSON( "www.bigdataforme.com/asset/data/HGT_5d.txt", function( json ) {
  out5 = json;
 var name = _.keys(out5.涨跌幅);
 
-var configure3 =  {
+var configure4 =  {
 
         chart: {
             type: 'column',
@@ -267,7 +261,7 @@ var configure3 =  {
         yAxis: {
             //min: 0,
             title: {
-                text: '金额'
+                text: '金额(亿)'
             }
         },
         tooltip: {
@@ -311,11 +305,11 @@ $(function () {var chart4 = new Highcharts.chart(configure4)});
 
 
 <script>
-$.getJSON( "./asset/data/HGT_10d.txt", function( json ) {
+$.getJSON( "www.bigdataforme.com/asset/data/HGT_10d.txt", function( json ) {
  out10 = json;
 var name = _.keys(out10.涨跌幅);
 
-var configure3 =  {
+var configure5 =  {
 
         chart: {
             type: 'column',
@@ -337,7 +331,7 @@ var configure3 =  {
         yAxis: {
             //min: 0,
             title: {
-                text: '金额'
+                text: '金额(亿)'
             }
         },
         tooltip: {
