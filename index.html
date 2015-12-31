@@ -12,10 +12,10 @@
 
 <body>
   <script>
-    $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_info.txt", function( json ) {
-     var  date = json[0];
+    var obj = $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_info.txt", function( ) {});
+     var  date = eval(obj.responseText)[0];
      $("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
-   });
+
    </script>
 
 <h1>  </h1>
