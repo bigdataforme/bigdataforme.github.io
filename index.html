@@ -21,6 +21,8 @@
   <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <div id="container5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <script>
 
 
@@ -59,7 +61,7 @@ var configure =  {
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -95,9 +97,9 @@ $(function () {var chart1 = new Highcharts.chart(configure)});
   </script>
 
 <script>
-$.getJSON( "./asset/data/HGT_5d.txt", function( json ) {
- out2 = json;
-var name = _.keys(out2.涨跌幅);
+$.getJSON( "./asset/data/HGT_1d.txt", function( json ) {
+ out1 = json;
+var name = _.keys(out1.涨跌幅);
 
 // alert(date);
 // date = $.map(date,function (d){return d.slice(0,10)});
@@ -111,7 +113,7 @@ var configure2 =  {
             renderTo: 'container2'
         },
         title: {
-            text: '最新5日前十大上榜股票'
+            text: '最新1日前十大上榜股票'
         },
         subtitle: {
             text: '沪港通数据综合'
@@ -132,7 +134,7 @@ var configure2 =  {
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -145,19 +147,19 @@ var configure2 =  {
         },
         series: [{
             name: '净买额',
-            data: _.values(out2.净买额)
+            data: _.values(out1.净买额)
 
         }, {
             name: '买入金额',
-            data: _.values(out2.买入金额)
+            data: _.values(out1.买入金额)
 
         }, {
             name: '卖出金额',
-            data: _.values(out2.卖出金额)
+            data: _.values(out1.卖出金额)
 
         }, {
             name: '成交金额',
-            data: _.values(out2.成交金额)
+            data: _.values(out1.成交金额)
 
         }]
     };
@@ -170,6 +172,145 @@ $(function () {var chart2 = new Highcharts.chart(configure2)});
 
 
 <script>
+$.getJSON( "./asset/data/HGT_3d.txt", function( json ) {
+ out3 = json;
+var name = _.keys(out3.涨跌幅);
+
+var configure3 =  {
+
+        chart: {
+            type: 'column',
+            renderTo: 'container3'
+        },
+        title: {
+            text: '最新3日前十大上榜股票'
+        },
+        subtitle: {
+            text: '沪港通数据综合'
+        },
+        xAxis: {
+            categories: name,
+            crosshair: true,
+            labels: {
+            //        rotation: 90
+            }
+        },
+        yAxis: {
+            //min: 0,
+            title: {
+                text: '金额'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '净买额',
+            data: _.values(out3.净买额)
+
+        }, {
+            name: '买入金额',
+            data: _.values(out3.买入金额)
+
+        }, {
+            name: '卖出金额',
+            data: _.values(out3.卖出金额)
+
+        }, {
+            name: '成交金额',
+            data: _.values(out3.成交金额)
+
+        }]
+    };
+
+$(function () {var chart3 = new Highcharts.chart(configure3)});
+
+
+});
+</script>
+
+<script>
+$.getJSON( "./asset/data/HGT_5d.txt", function( json ) {
+ out5 = json;
+var name = _.keys(out5.涨跌幅);
+
+var configure3 =  {
+
+        chart: {
+            type: 'column',
+            renderTo: 'container4'
+        },
+        title: {
+            text: '最新5日前十大上榜股票'
+        },
+        subtitle: {
+            text: '沪港通数据综合'
+        },
+        xAxis: {
+            categories: name,
+            crosshair: true,
+            labels: {
+            //        rotation: 90
+            }
+        },
+        yAxis: {
+            //min: 0,
+            title: {
+                text: '金额'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '净买额',
+            data: _.values(out5.净买额)
+
+        }, {
+            name: '买入金额',
+            data: _.values(out5.买入金额)
+
+        }, {
+            name: '卖出金额',
+            data: _.values(out5.卖出金额)
+
+        }, {
+            name: '成交金额',
+            data: _.values(out5.成交金额)
+
+        }]
+    };
+
+$(function () {var chart4 = new Highcharts.chart(configure4)});
+
+
+});
+</script>
+
+
+<script>
 $.getJSON( "./asset/data/HGT_10d.txt", function( json ) {
  out10 = json;
 var name = _.keys(out10.涨跌幅);
@@ -178,7 +319,7 @@ var configure3 =  {
 
         chart: {
             type: 'column',
-            renderTo: 'container3'
+            renderTo: 'container5'
         },
         title: {
             text: '最新10日前十大上榜股票'
@@ -202,7 +343,7 @@ var configure3 =  {
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -232,7 +373,7 @@ var configure3 =  {
         }]
     };
 
-$(function () {var chart3 = new Highcharts.chart(configure3)});
+$(function () {var chart5 = new Highcharts.chart(configure5)});
 
 
 });
