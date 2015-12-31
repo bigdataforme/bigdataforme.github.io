@@ -7,7 +7,7 @@
 <<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://cdn.bootcss.com/highcharts/4.2.1/highcharts.js"></script>
 <script src="https://cdn.bootcss.com/highcharts/4.2.1/modules/exporting.js"></script>
-<script src="www.bigdataforme.com/asset/js/google.js"></script>
+<script src="http://www.bigdataforme.com/asset/js/google.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   <script>
 
 
-  $.getJSON( "www.bigdataforme.com/asset/data/HGT_YuTONG.txt", function( json ) {
+  $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_YuTONG.txt", function( json ) {
    out = json;
 
 var date = _.pluck(out,'日期');
@@ -91,7 +91,7 @@ $(function () {var chart1 = new Highcharts.chart(configure)});
   </script>
 
 <script>
-$.getJSON( "www.bigdataforme.com/asset/data/HGT_1d.txt", function( json ) {
+$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_1d.txt", function( json ) {
  out1 = json;
 var name = _.keys(out1.涨跌幅);
 
@@ -166,7 +166,7 @@ $(function () {var chart2 = new Highcharts.chart(configure2)});
 
 
 <script>
-$.getJSON( "www.bigdataforme.com/asset/data/HGT_3d.txt", function( json ) {
+$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_3d.txt", function( json ) {
  out3 = json;
 var name = _.keys(out3.涨跌幅);
 
@@ -235,7 +235,7 @@ $(function () {var chart3 = new Highcharts.chart(configure3)});
 </script>
 
 <script>
-$.getJSON( "www.bigdataforme.com/asset/data/HGT_5d.txt", function( json ) {
+$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_5d.txt", function( json ) {
  out5 = json;
 var name = _.keys(out5.涨跌幅);
 
@@ -305,7 +305,7 @@ $(function () {var chart4 = new Highcharts.chart(configure4)});
 
 
 <script>
-$.getJSON( "www.bigdataforme.com/asset/data/HGT_10d.txt", function( json ) {
+$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_10d.txt", function( json ) {
  out10 = json;
 var name = _.keys(out10.涨跌幅);
 
