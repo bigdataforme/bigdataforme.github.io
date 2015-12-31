@@ -16,9 +16,7 @@
       var date2 = json[0];
          $("h1").html("沪港通大数据分析，最新更新时间: " + date2.lastupdatDate);
     });
-     var  date = eval(obj.responseText);
-     var date = date[0];
-     $("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
+
 
    </script>
 
@@ -30,7 +28,9 @@
   <div id="container5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
   <script>
-
+  var  date = eval(obj.responseText);
+  var date = date[0];
+  $("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
 
   $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_YuTONG.txt", function( json ) {
    out = json;
