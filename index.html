@@ -11,7 +11,16 @@
 </head>
 
 <body>
+  <script>
+    var obj = $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_info.txt", function( json) {
+      var date2 = json[0];
+         $("h1").html("沪港通大数据分析，最新更新时间: " + date2.lastupdatDate);
+    });
+    //var  date = eval(obj.responseText);
+    //var date = date[0];
+    //$("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
 
+   </script>
 
 <h1>  </h1>
   <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -376,16 +385,7 @@ $(function () {var chart5 = new Highcharts.chart(configure5)});
 });
 </script>
 
-<script>
-  var obj = $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_info.txt", function( json) {
-    var date2 = json[0];
-       $("h1").html("沪港通大数据分析，最新更新时间: " + date2.lastupdatDate);
-  });
-  //var  date = eval(obj.responseText);
-  //var date = date[0];
-  //$("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
 
- </script>
 
 <!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="1" data-title="front-page" data-url="www.bigdataforme.com"></div>
