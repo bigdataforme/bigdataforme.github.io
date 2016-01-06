@@ -1,393 +1,36 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://cdn.bootcss.com/highcharts/4.2.1/highcharts.js"></script>
-<script src="https://cdn.bootcss.com/highcharts/4.2.1/modules/exporting.js"></script>
-<script src="http://www.bigdataforme.com/asset/js/google.js"></script>
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdn.bootcss.com/highcharts/4.2.1/highcharts.js"></script>
+    <script src="https://cdn.bootcss.com/highcharts/4.2.1/modules/exporting.js"></script>
+    <script src="http://www.bigdataforme.com/asset/js/google.js"></script>
 
-<body>
-  <script>
+  </head>
+  <body>
+      <script>
     var obj = $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_info.txt", function( json) {
       var date2 = json[0];
-         $("h1").html("沪港通大数据分析，最新更新时间: " + date2.lastupdatDate);
+         $("#app").html("沪港通大数据分析，最新更新时间: " + date2.lastupdatDate);
     });
-    //var  date = eval(obj.responseText);
-    //var date = date[0];
-    //$("h1").html("沪港通大数据分析，最新更新时间: " + date.lastupdatDate);
-
    </script>
 
-<h1>  </h1>
-  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="app">
+        <h> </h>
+    </div>
+      <div id="container0" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="container5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script src="js/compiled/hgt.js" type="text/javascript"></script>
 
-  <script>
-
-
-  $.getJSON( "http://www.bigdataforme.com/asset/data/HGT_YuTONG.txt", function( json ) {
-   out = json;
-
-var date = _.pluck(out,'日期');
-// alert(date);
-date = $.map(date,function (d){return d.slice(0,10)});
-// data.forEach(function (d, index, array) {plot1.push(d.Age);});
-// format.parse("2011-01-01"); // returns a Date
-//alert(date);
-var configure =  {
-
-        chart: {
-            type: 'column',
-            renderTo: 'container'
-        },
-        title: {
-            text: '宇通客车'
-        },
-        subtitle: {
-            text: '沪港通全部历史数据'
-        },
-        xAxis: {
-            categories: date,
-            crosshair: true
-
-        },
-        yAxis: {
-            //min: 0,
-            title: {
-                text: '金额(亿)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '净买额',
-            data: _.pluck(out,'净买额')
-
-        }, {
-            name: '买入金额',
-            data: _.pluck(out,'买入金额')
-
-        }, {
-            name: '卖出金额',
-            data: _.pluck(out,'卖出金额')
-
-        }, {
-            name: '成交金额',
-            data: _.pluck(out,'成交金额')
-
-        }]
-    };
-
-$(function () {var chart1 = new Highcharts.chart(configure)});
-
-});
-  </script>
-
-<script>
-$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_1d.txt", function( json ) {
- out1 = json;
-var name = _.keys(out1.涨跌幅);
-
-// alert(date);
-// date = $.map(date,function (d){return d.slice(0,10)});
-// data.forEach(function (d, index, array) {plot1.push(d.Age);});
-// format.parse("2011-01-01"); // returns a Date
-//alert(date);
-var configure2 =  {
-
-        chart: {
-            type: 'column',
-            renderTo: 'container2'
-        },
-        title: {
-            text: '最新1日前十大上榜股票'
-        },
-        subtitle: {
-            text: '沪港通数据综合'
-        },
-        xAxis: {
-            categories: name,
-            crosshair: true,
-            labels: {
-                  //  rotation: 50
-            }
-        },
-        yAxis: {
-            //min: 0,
-            title: {
-                text: '金额(亿)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '净买额',
-            data: _.values(out1.净买额)
-
-        }, {
-            name: '买入金额',
-            data: _.values(out1.买入金额)
-
-        }, {
-            name: '卖出金额',
-            data: _.values(out1.卖出金额)
-
-        }, {
-            name: '成交金额',
-            data: _.values(out1.成交金额)
-
-        }]
-    };
-
-$(function () {var chart2 = new Highcharts.chart(configure2)});
-
-});
-
-</script>
-
-
-<script>
-$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_3d.txt", function( json ) {
- out3 = json;
-var name = _.keys(out3.涨跌幅);
-
-var configure3 =  {
-
-        chart: {
-            type: 'column',
-            renderTo: 'container3'
-        },
-        title: {
-            text: '最新3日前十大上榜股票'
-        },
-        subtitle: {
-            text: '沪港通数据综合'
-        },
-        xAxis: {
-            categories: name,
-            crosshair: true,
-            labels: {
-            //        rotation: 90
-            }
-        },
-        yAxis: {
-            //min: 0,
-            title: {
-                text: '金额(亿)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '净买额',
-            data: _.values(out3.净买额)
-
-        }, {
-            name: '买入金额',
-            data: _.values(out3.买入金额)
-
-        }, {
-            name: '卖出金额',
-            data: _.values(out3.卖出金额)
-
-        }, {
-            name: '成交金额',
-            data: _.values(out3.成交金额)
-
-        }]
-    };
-
-$(function () {var chart3 = new Highcharts.chart(configure3)});
-
-
-});
-</script>
-
-<script>
-$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_5d.txt", function( json ) {
- out5 = json;
-var name = _.keys(out5.涨跌幅);
-
-var configure4 =  {
-
-        chart: {
-            type: 'column',
-            renderTo: 'container4'
-        },
-        title: {
-            text: '最新5日前十大上榜股票'
-        },
-        subtitle: {
-            text: '沪港通数据综合'
-        },
-        xAxis: {
-            categories: name,
-            crosshair: true,
-            labels: {
-            //        rotation: 90
-            }
-        },
-        yAxis: {
-            //min: 0,
-            title: {
-                text: '金额(亿)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '净买额',
-            data: _.values(out5.净买额)
-
-        }, {
-            name: '买入金额',
-            data: _.values(out5.买入金额)
-
-        }, {
-            name: '卖出金额',
-            data: _.values(out5.卖出金额)
-
-        }, {
-            name: '成交金额',
-            data: _.values(out5.成交金额)
-
-        }]
-    };
-
-$(function () {var chart4 = new Highcharts.chart(configure4)});
-
-
-});
-</script>
-
-
-<script>
-$.getJSON( "http://www.bigdataforme.com/asset/data/HGT_10d.txt", function( json ) {
- out10 = json;
-var name = _.keys(out10.涨跌幅);
-
-var configure5 =  {
-
-        chart: {
-            type: 'column',
-            renderTo: 'container5'
-        },
-        title: {
-            text: '最新10日前十大上榜股票'
-        },
-        subtitle: {
-            text: '沪港通数据综合'
-        },
-        xAxis: {
-            categories: name,
-            crosshair: true,
-            labels: {
-            //        rotation: 90
-            }
-        },
-        yAxis: {
-            //min: 0,
-            title: {
-                text: '金额(亿)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.2f} 亿</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '净买额',
-            data: _.values(out10.净买额)
-
-        }, {
-            name: '买入金额',
-            data: _.values(out10.买入金额)
-
-        }, {
-            name: '卖出金额',
-            data: _.values(out10.卖出金额)
-
-        }, {
-            name: '成交金额',
-            data: _.values(out10.成交金额)
-
-        }]
-    };
-
-$(function () {var chart5 = new Highcharts.chart(configure5)});
-
-
-});
-</script>
-
-
-
-<!-- 多说评论框 start -->
+    <!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="1" data-title="front-page" data-url="www.bigdataforme.com"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -402,6 +45,5 @@ var duoshuoQuery = {short_name:"bigdataforme"};
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
 	})();
 	</script>
-<!-- 多说公共JS代码 end -->
-
-</body>
+  </body>
+</html>
